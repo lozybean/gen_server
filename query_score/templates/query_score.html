@@ -20,27 +20,39 @@
                 <th width="50%" class="text-center">
                     准考证号码
                 </th>
-                <th width="20%" class="text-center">
+                <th width="10%" class="text-center">
                     理论成绩
                 </th>
-                <th width="20%" class="text-center">
+                <th width="10%" class="text-center">
                     专业成绩
+                </th>
+                <th width="10%" class="text-center">
+                    案例成绩
+                </th>
+                <th width="10%" class="text-center">
+                    专业总成绩
                 </th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td>
+                <td class="text-center">
                     {{ obj.name }}
                 </td>
-                <td>
+                <td class="text-center">
                     {{ obj.exam_id }}
                 </td>
-                <td>
+                <td class="text-center">
                     {{ obj.score_theory }}
                 </td>
-                <td>
+                <td class="text-center">
                     {{ obj.score_major }}
+                </td>
+                <td class="text-center">
+                    {{ obj.score_case }}
+                </td>
+                <td class="text-center">
+                    {{ obj.score_major_total }}
                 </td>
             </tr>
             </tbody>

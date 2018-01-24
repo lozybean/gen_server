@@ -17,6 +17,6 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^query/', include('query_score.urls')),
+    url(r'^', include('query_score.urls')),
     url(r'^admin/', admin.site.urls),
 ]

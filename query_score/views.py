@@ -6,7 +6,6 @@
 
 """
 
-from annoying.functions import get_object_or_None
 from django.views import generic
 from query_score.forms import UserScoreForm
 from query_score.models import UserScore
@@ -23,16 +22,17 @@ class QueryView(generic.FormView):
     form_class = UserScoreForm
     template_name = 'query_score.html'
 
-    def try_get_by_name(self, name):
-        return get_object_or_None(self.model_name, name=name)
+    def try_get_by_name(self, name: str):
+        return self.model_name.objects.filter(name=name).first()
 
-    def try_get_by_id_card(self, id_num):
-        return get_object_or_None(self.model_name, id_card=id_num)
+    def try_get_by_id_card(self, id_num: str):
+        return self.model_name.objects.filter(id_card=id_num.lower()).first()
 
-    def try_get_by_exam_id(self, exam_id):
-        return get_object_or_None(self.model_name, exam_id=exam_id)
+    def try_get_by_exam_id(self, exam_id: str):
+        return self.model_name.objects.filter(exam_id=exam_id).first()
 
-    def get_context_data(self, search_key, **kwargs):
+    def get_context_data(self, **kwargs):
+        search_key = self.request.GET.get('keyword')
         context = super(QueryView, self).get_context_data(**kwargs)
         obj = self.try_get_by_name(search_key)
         if obj is None:
