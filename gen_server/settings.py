@@ -24,7 +24,7 @@ SECRET_KEY = '$!3(+b$0@oehr^p0@#nj7nx+j_4=#be-71lwcjc#=s7*ytmn6*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '10.25.7.123']
+ALLOWED_HOSTS = ['127.0.0.1', '10.25.7.123', '114.55.113.23']
 
 # Application definition
 
@@ -116,13 +116,18 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+
 STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    # os.path.join(STATIC_ROOT, 'css'),
-    # os.path.join(STATIC_ROOT, 'js'),
+    os.path.join(BASE_DIR, 'static'),
 ]
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
 
 BOOTSTRAP3 = {
 

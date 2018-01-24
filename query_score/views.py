@@ -6,6 +6,7 @@
 
 """
 
+from django.contrib import messages
 from django.views import generic
 from query_score.forms import UserScoreForm
 from query_score.models import UserScore
@@ -34,10 +35,14 @@ class QueryView(generic.FormView):
     def get_context_data(self, **kwargs):
         search_key = self.request.GET.get('keyword')
         context = super(QueryView, self).get_context_data(**kwargs)
-        obj = self.try_get_by_name(search_key)
+        # obj = self.try_get_by_name(search_key)
+        # if obj is None:
+        # obj = self.try_get_by_exam_id(search_key)
+        # if obj is None:
+        if len(search_key) != 18:
+            messages.warning(self.request, '请输入正确的身份证号码！')
+        obj = self.try_get_by_id_card(search_key)
         if obj is None:
-            obj = self.try_get_by_exam_id(search_key)
-        if obj is None:
-            obj = self.try_get_by_id_card(search_key)
+            messages.error(self.request, '没有查询到相关成绩！')
         context.update(obj=obj)
         return context

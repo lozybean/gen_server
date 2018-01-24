@@ -45,4 +45,5 @@ def insert_intermediate_score():
 
 
 if __name__ == '__main__':
+    insert_elementary_score()
     insert_intermediate_score()
