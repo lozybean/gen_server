@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block content %}
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <div class="panel panel-default">
+        <div class="panel-heading text-center">查询结果</div>
+        <table class="table table-responsive">
+            <thead class="thead-default">
+            <tr>
+                <th width="10%" class="text-center">
+                    姓名
+                </th>
+                <th width="50%" class="text-center">
+                    准考证号码
+                </th>
+                <th width="20%" class="text-center">
+                    理论成绩
+                </th>
+                <th width="20%" class="text-center">
+                    专业成绩
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    {{ obj.name }}
+                </td>
+                <td>
+                    {{ obj.exam_id }}
+                </td>
+                <td>
+                    {{ obj.score_theory }}
+                </td>
+                <td>
+                    {{ obj.score_major }}
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+{% endblock %}
