@@ -118,16 +118,18 @@ USE_TZ = False
 
 
 STATIC_URL = '/static/'
-
+# STATIC_ROOT = os.path.join(BASE_DIR, "query_score/static")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
+    # os.path.join(STATIC_ROOT, 'css'),
+    # os.path.join(STATIC_ROOT, 'js'),
 ]
 
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
-)
+# STATICFILES_FINDERS = (
+#     'django.contrib.staticfiles.finders.FileSystemFinder',
+#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#     #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+# )
 
 BOOTSTRAP3 = {
 
