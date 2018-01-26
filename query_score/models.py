@@ -10,3 +10,6 @@ class UserScore(models.Model):
     score_major = models.CharField(max_length=20, verbose_name='专业成绩')
     score_case = models.CharField(max_length=20, verbose_name='案例成绩')
     score_major_total = models.CharField(max_length=20, verbose_name='专业总成绩')
+
+    def __str__(self):
+        return f'{self.name}  ({self.id_card})'
